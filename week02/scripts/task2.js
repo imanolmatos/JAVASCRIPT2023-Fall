@@ -20,7 +20,7 @@ let namePicture = "images/imanolmatos.jpeg";
 // Step 6: copy your image into the "images" folder
 
 // Step 7: place the value of the picture variable into the HTML file (hint: document.querySelector().setAttribute())
-document.querySelector("#photo").src = namePicture;
+document.querySelector("img").src = namePicture;
 
 /* ARRAYS */
 
