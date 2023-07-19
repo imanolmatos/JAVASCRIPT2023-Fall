@@ -1,6 +1,6 @@
 
 //Declare numbers to avoid errors.
-day = 6;
+day = date.getDay();
 
 function sumOfNumbers(number1 = 0, number2 = 0, number3 = 0,number4 = 0,number5 = 0,number6 = 0,number7 = 0,number8 = 0) {
   let sum = number1 + number2 + number3 + number4 + number5 + number6 + number7 + number8;
