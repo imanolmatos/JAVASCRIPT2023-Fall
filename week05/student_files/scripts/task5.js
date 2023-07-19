@@ -13,7 +13,7 @@ day = date.getDay();
 // Step 4: Declare a variable to hold a message that will be displayed
 let message;
 // Step 5: Using an if statement, if the day of the week is a weekday (i.e. Monday - Friday), set the message variable to the string 'Hang in there!'
-if (day === 5) {
+if (day >= 1 && day != 6) {
   message = "Hang in there";
 } else {
   message = "Woohoo!  It is the weekend";
@@ -56,7 +56,7 @@ document.querySelector("#message1").innerHTML = message;
 document.querySelector("#message2").innerHTML = messageDay;
 /* FETCH */
 // Step 1: Declare a global empty array variable to store a list of temples
-let temples = [];
+let temples = {};
 
 // Step 2: Declare a function named output that accepts a list of temples as an array argument and does the following for each temple:
 // - Creates an HTML <article> element
@@ -68,22 +68,20 @@ let temples = [];
 // - Appends the <article> element to the HTML element with an ID of temples
 
 function Output(temples) {
-  for (const temple of temples) {
-    const nodeArt = document.createElement("article");
+  temples.forEach((temple, index, array) => {
+    const nodeArt = document.createElement("ARTICLE");
     const nodeH3 = document.createElement("h3");
     nodeH3.innerHTML = temple.templeName;
     const nodeH4 = document.createElement("h4");
     nodeH4.innerHTML = temple.location;
     const nodeH41 = document.createElement("h4");
-    nodeH41 = temple.dedicated;
+    nodeH41.innerHTML = temple.dedicated;
     const nodeIm = document.createElement("img");
-    document.querySelector("img").src = imageUrl;
-    document.querySelector("img").alt = templeName;
-    document
-      .querySelector("article")
-      .appendChild(nodeH3, nodeH4, nodeH41, nodeIm);
-    document.querySelector("#temples").appendChild(nodeArt);
-  }
+    nodeIm.src = temple.imageUrl;
+    nodeIm.alt = temple.templeName;
+    nodeArt.append(nodeH3, nodeH4, nodeH41, nodeIm);
+    document.getElementById("temples").appendChild(nodeArt);
+  });
 }
 // Step 3: Create another function called getTemples. Make it an async function.
 // Step 4: In the function, using the built-in fetch method, call this absolute URL: 'https://byui-cse.github.io/cse121b-course/week05/temples.json'. Create a variable to hold the response from your fetch. You should have the program wait on this line until it finishes.
@@ -94,20 +92,70 @@ async function getTemples() {
   const response = await fetch(url);
   if (response.ok) {
     const data = await response.json();
-    temples.push(data);
+    doStuff(data);
   }
 }
-getTemples();
+
+function doStuff(data) {
+temples = data;
+console.log(temples);
 Output(temples);
+sortElement = document.getElementById("sortBy");
+// Step 9: Add a change event listener to the HTML element with an ID of sortBy that calls the sortBy function
+sortElement.addEventListener("change", function() {
+  sortBy(temples);
+})
+};
+  
+
+getTemples();
+
 
 // Step 7: Declare a function named reset that clears all of the <article> elements from the HTML element with an ID of temples
+function reset() {
+const clear = document.getElementById("temples");
+clearing = clear.getElementsByTagName("article");
+clear.replaceChildren();
+}
 
 // Step 8: Declare a function named sortBy that does the following:
 // - Calls the reset function
 // - Sorts the global temple list by the currently selected value of the HTML element with an ID of sortBy
 // - Calls the output function passing in the sorted list of temples
+function sortBy(temples) {
+  reset();
+  value = document.getElementById("sortBy").value;
+  if (value == "templeNameAscending") {
+    alert("Ascending elements.")
+    templesAscending = temples.sort(function (a, b) {
+      if (a.templeName < b.templeName) {
+        return -1;
+      }
+      else if (a.templeName > b.templeName) {
+        return 1;
+      }
+        return 0;
+    }); 
+    Output(templesAscending);
+  }
+  if (value == "templeNameDescending"){
+    alert("Descending elements.")
+    templesDescending = temples.sort(function (a, b) {
+      if (a.templeName < b.templeName) {
+        return 1;
+      }
+      else if (a.templeName > b.templeName) {
+        return -1;
+      }
+        return 0;
+    });
+    Output(templesDescending);
+  } 
+}
 
-// Step 9: Add a change event listener to the HTML element with an ID of sortBy that calls the sortBy function
+
+
+
 
 /* STRETCH */
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <label>
+      Choose:
+      <select class="Colours" name="Colour">
+         <option value="">Select One …</option>
+         <option value="Black">Black</option>
+         <option value="Pink">Pink</option>
+         <option value="Violet">Violet</option>
+      </select>
+   </label>
+   <div class="tutorial"></div>
+   <script>
+      const selectElement = document.querySelector('.Colours');
+      selectElement.addEventListener('change', (event) => {
+         const result = document.querySelector('.tutorial');
+         result.textContent = `You like ${event.target.value}`;
+      });
+   </script>
+</body>
+</html>

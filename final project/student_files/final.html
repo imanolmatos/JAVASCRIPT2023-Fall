@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 121b: Week 05 | Sample Solution</title>
+    <link href="https://fonts.googleapis.com/css?family=Kalam&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <nav>
+        <ul id="menu">
+            <li><a id="toggleMenu">&equiv;</a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#">Lesson 2</a></li>
+            <li><a href="#">Lesson 3</a></li>
+            <li><a href="#">Lesson 4</a></li>
+            <li><a href="#">Lesson 5</a></li>
+            <li><a hred="#"  class= "active"> Final Project </a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Welcome to Mangulina's Restaurant</h1>
+    </header>
+    <main>
+        <section>
+            <h2>
+                Today is <span id="message2"></span>.
+            </h2>
+            <h3>
+                <span id="message1"></span>
+            </h3>
+        </section>
+        <hr>
+        <section>
+            <h2>Menu</h2>
+            <p>
+                Sort by: 
+                <select id="sortBy">
+                    <option value="mealNameAscending">Meal Name Ascending</option>
+                    <option value="mealNameDescending">Meal Name Descending</option>
+                </select>
+            </p>
+            <div id="meals">
+            </div>
+        </section>
+        <section id="functions">
+            <article>
+                <h2>Sum your order</h2>
+                <div>
+                    <label for="addend1">Number 1:</label>
+                    <input type="text" id="addend1" name="addend1" value = 0>
+                </div>
+                <div>
+                    <label for="addend2">Number 2:</label>
+                    <input type="text" id="addend2" name="addend2" value = 0>
+                </div>
+                <div>
+                    <label for="addend3">Number 3:</label>
+                    <input type="text" id="addend3" name="addend3" value = 0>
+                </div>
+                <div>
+                    <label for="addend4">Number 4 :</label>
+                    <input type="text" id="addend4" name="addend4" value = 0>
+                </div>
+                <div>
+                    <label for="addend5">Number 5:</label>
+                    <input type="text" id="addend5" name="addend5" value = 0>
+                </div>
+                <div>
+                    <label for="addend6">Number 6:</label>
+                    <input type="text" id="addend6" name="addend6" value = 0>
+                </div>
+                <div>
+                    <label for="addend7">Number 7:</label>
+                    <input type="text" id="addend7" name="addend7" value = 0>
+                </div>
+                <div>
+                    <label for="addend8">Number 8:</label>
+                    <input type="text" id="addend8" name="addend8" value = 0>
+                </div>
+                <div>
+                    <input type="button" id="addNumbers" value="Add Numbers">
+                </div>
+                <div>
+                    <label for="sum">Sum:</label>
+                    <input type="text" id="sum" name="sum" disabled>
+                </div>
+            </article>
+    </main>
+    <footer>
+        &copy;<span id="year"></span> | Mangulina's Restaurant | Final Project 
+    </footer>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/final.js"></script>
+    <script src="scripts/math.js"></script>
+</body>
+</html>
